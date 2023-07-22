@@ -49,25 +49,20 @@ if __name__ == "__main__":
     gpu, gray, ciou, lang = args.gpu, args.gray, args.ciou, args.lang
     img_formats = ['bmp', 'jpg', 'jpeg', 'png', 'tif', 'tiff', 'dng', 'webp', 'mpo', 'gif']
 
-    # 디바이스 세팅
     if gpu == -1:
         dev = 'cpu'
     else:
         dev = f'cuda:{gpu}'
     device = torch.device(dev)
 
-    # config 로드
     with open('config.yaml', 'r') as f:
         config = yaml.safe_load(f)
     img_path, detection = config['images'], config['detection']
     f.close()
 
-    # 모델 세팅
     lang_list = lang.split(' ')
     reader = Reader(lang_list)
 
     detection_model = attempt_load(detection, map_location=device)
-
-    print('----- 모델 로드 완료 -----')
 
     serve(app, host='0.0.0.0', port=args.port)

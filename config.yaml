@@ -1,7 +1,8 @@
+# config.yaml
 
-images: image
+images: image                                # detection image folder
 
-detection: weights/example.pt
-detection-size: 640
-detection-confidence: 0.25
-detection-iou: 0.25
+detection: weights/example.pt                # trained detecting model
+detection-size: 640                          # Detection image size
+detection-confidence: 0.25                   # detecting confidence
+detection-iou: 0.45                          # detecting iou

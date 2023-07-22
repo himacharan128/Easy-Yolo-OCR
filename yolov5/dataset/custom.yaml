@@ -1,0 +1,9 @@
+# custom.yaml
+
+path: ./dataset
+train: custom_train.txt
+val:  custom_valid.txt
+test:  custom_train_test.txt  # (optional)
+
+nc: 10  # number of classes
+names: ['title', 'name', 'personal_id', 'text_box_1', 'text_box_2', 'price', 'address', 'age', 'date', 'count']  # class names
